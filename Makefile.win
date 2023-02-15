@@ -1,0 +1,46 @@
+# Project: ATMPRO
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = ATMmain.o pinchange.o cash_withdraw.o cash_depoist.o createaccount.o ministatement.o balanceenquiry.o
+LINKOBJ  = ATMmain.o pinchange.o cash_withdraw.o cash_depoist.o createaccount.o ministatement.o balanceenquiry.o
+LIBS     = -L"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -static-libgcc -m32 -g3
+INCS     = -I"C:/Program Files/Dev-Cpp/MinGW64/include" -I"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files/Dev-Cpp/MinGW64/include" -I"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = ATMPRO.exe
+CXXFLAGS = $(CXXINCS) -m32 -g3
+CFLAGS   = $(INCS) -m32 -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+ATMmain.o: ATMmain.c
+	$(CC) -c ATMmain.c -o ATMmain.o $(CFLAGS)
+
+pinchange.o: pinchange.c
+	$(CC) -c pinchange.c -o pinchange.o $(CFLAGS)
+
+cash_withdraw.o: cash_withdraw.c
+	$(CC) -c cash_withdraw.c -o cash_withdraw.o $(CFLAGS)
+
+cash_depoist.o: cash_depoist.c
+	$(CC) -c cash_depoist.c -o cash_depoist.o $(CFLAGS)
+
+createaccount.o: createaccount.c
+	$(CC) -c createaccount.c -o createaccount.o $(CFLAGS)
+
+ministatement.o: ministatement.c
+	$(CC) -c ministatement.c -o ministatement.o $(CFLAGS)
+
+balanceenquiry.o: balanceenquiry.c
+	$(CC) -c balanceenquiry.c -o balanceenquiry.o $(CFLAGS)
